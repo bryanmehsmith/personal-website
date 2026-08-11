@@ -1,0 +1,226 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 28px 16px 0;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+
+.header-identity {
+  min-width: 0;
+}
+
+.header-title {
+  text-align: left;
+  margin: 0;
+  position: static;
+  transform: none;
+}
+
+.header-role,
+.header-breadth,
+.header-specialisms,
+.header-location {
+  margin: 10px 0 0;
+  color: var(--muted-text);
+}
+
+.header-role {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: var(--text-color);
+}
+
+.header-breadth {
+  font-size: 0.98rem;
+  margin-top: 6px;
+}
+
+.header-specialisms {
+  font-size: 0.98rem;
+}
+
+.header-location {
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.dark-mode-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch input:focus-visible + .slider {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  transition: background-color 0.2s ease;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--card-background);
+  transition: transform 0.2s ease;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.slider .icon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  color: rgba(0,0,0,1);
+  transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.slider .icon svg { display: block; width: 100%; height: 100%; }
+
+/* put icons on top of the knob */
+.slider:before { z-index: 1; }
+
+/* default: sun visible on knob, moon hidden */
+.slider .icon.sun { opacity: 1; color: #f6c84c; }
+.slider .icon.moon { opacity: 0}
+
+/* move icons with the knob when checked */
+.toggle-switch input:checked + .slider .icon {
+  transform: translateX(20px) translateY(-50%);
+}
+
+/* swap visibility on checked */
+.toggle-switch input:checked + .slider .icon.sun { opacity: 0; }
+.toggle-switch input:checked + .slider .icon.moon { opacity: 1; color: #000; }
+
+/* ensure contrast in dark mode (moon visible) */
+body.dark-mode .slider { background-color: #383127; }
+
+input:checked + .slider {
+  background-color: var(--button-background);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* add a subtle border when checked to match button outline color */
+input:checked + .slider {
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.06) inset;
+}
+
+.site-nav {
+  border-top: 1px solid var(--border-color);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 0;
+  margin: 0 auto;
+  width: min(1120px, 100%);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 14px 16px;
+  color: var(--text-color);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-button.active {
+  border-bottom-color: var(--accent-color);
+  color: var(--link-color);
+  font-weight: 650;
+}
+
+.nav-button:hover,
+.nav-button:focus-visible {
+  background: var(--subtle-surface);
+  color: var(--link-hover);
+}
+
+@media (max-width: 760px) {
+  .header {
+    padding-top: 22px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .header-actions {
+    justify-content: space-between;
+    margin-left: 0;
+  }
+
+  .nav-list {
+    padding: 0 0 0 2px;
+  }
+
+  .nav-button {
+    padding: 12px 14px;
+    white-space: nowrap;
+  }
+}
