@@ -6,7 +6,7 @@ This file gives quick, practical guidance for AI assistants (Copilot/Chat agents
 
 ## Quick context
 - Stack: Create React App (React, plain CSS)
-- Deployment: Azure Static Web Apps (see `staticwebapp.config.json` and `azure-pipelines.yml`)
+- Deployment: Azure Static Web Apps (see `public/staticwebapp.config.json` and `.github/workflows/azure-static-web-apps.yml`)
 - Source: `src/` ; built output: `build/`
 - Components: `src/components/`
 - Tests: Jest + React Testing Library (see `src/*.test.js`)
