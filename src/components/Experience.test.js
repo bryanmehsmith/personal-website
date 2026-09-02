@@ -45,6 +45,16 @@ describe('Experience component', () => {
     expect(section).toHaveTextContent(/query router agent/i);
   });
 
+  test('shows direct stakeholder work across the delivery lifecycle', () => {
+    render(<Experience />);
+
+    const section = document.querySelector('.experience.card-container');
+    expect(section).toHaveTextContent(/directly with stakeholders/i);
+    expect(section).toHaveTextContent(/requirements analysis/i);
+    expect(section).toHaveTextContent(/architectural planning/i);
+    expect(section).toHaveTextContent(/environment setup/i);
+  });
+
   test('quantifies the platform and reporting footprint at an aggregate level', () => {
     render(<Experience />);
 

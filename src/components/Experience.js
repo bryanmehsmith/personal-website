@@ -11,7 +11,7 @@ export const experiences = [
     description: [
       {
         subtitle: 'Data Platform Ownership',
-        text: 'Built the platform from the ground up - initially Airflow, Docker, and Postgres, later migrated to Microsoft Fabric Pipelines, PySpark, and T-SQL - now running 100+ pipelines across hundreds of modelled tables. I own platform-level architecture and administration.'
+        text: 'Built the platform from the ground up, initially using Airflow, Docker, and Postgres before migrating to Microsoft Fabric Pipelines, PySpark, and T-SQL. It now runs 100+ pipelines across hundreds of modelled tables. I own platform-level architecture and administration.'
       },
       {
         subtitle: 'Enterprise Data Integration',
@@ -31,7 +31,7 @@ export const experiences = [
       },
       {
         subtitle: 'Data Modeling & Database Administration',
-        text: 'Designed and maintained logical and physical data models using Kimball methodology with Snowflake schemas. Owned database design and administration across reporting and analytics environments - schemas, access controls, and performance tuning.'
+        text: 'Designed and maintained logical and physical data models using Kimball methodology with Snowflake schemas. Owned database design and administration across reporting and analytics environments, including schemas, access controls, and performance tuning.'
       },
       {
         subtitle: 'AI-Augmented Workflows',
@@ -47,7 +47,7 @@ export const experiences = [
       },
       {
         subtitle: 'Team Leadership & Delivery',
-        text: 'Provide technical mentorship and code review, onboard new hires onto the platform and tooling, and set technical direction for how the team approaches data engineering problems. I manage delivery through Azure DevOps, from requirements to deployment, with structured environments and formal change control.'
+        text: 'Work directly with stakeholders across the full delivery lifecycle, covering requirements analysis, solution design, architectural planning, environment setup, implementation, deployment, and ongoing support. I also provide technical mentorship and code review, onboard new hires, and set technical direction. I manage delivery through Azure DevOps with structured environments and formal change control.'
       },
       {
         subtitle: 'Azure Cloud Integration & Security',

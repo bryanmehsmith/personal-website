@@ -12,7 +12,7 @@ export const projects = [
       },
       {
         subtitle: 'Approach',
-        text: 'A modular, phased Docker Compose stack - MinIO, Nessie, and Trino/DuckDB as the lakehouse core; Dagster for batch orchestration and dbt for transforms and tests; Redpanda for streaming; a local LLM (Ollama) and RAG layer (Qdrant, Open WebUI) including a text-to-SQL pipeline with its own eval harness; Metabase for BI; and a full observability stack (Prometheus, Grafana, Loki, cAdvisor) - all brought up with a single command, designed to scale from one machine to a small cluster without changing tools.'
+        text: 'A modular, phased Docker Compose stack uses MinIO, Nessie, and Trino/DuckDB as the lakehouse core; Dagster for batch orchestration; dbt for transforms and tests; Redpanda for streaming; a local LLM (Ollama) and RAG layer (Qdrant, Open WebUI), including a text-to-SQL pipeline with its own eval harness; Metabase for BI; and a full observability stack (Prometheus, Grafana, Loki, cAdvisor). The stack starts with one command and can scale from one machine to a small cluster without changing tools.'
       },
       {
         subtitle: 'Impact',
@@ -33,11 +33,11 @@ export const projects = [
       },
       {
         subtitle: 'Approach',
-        text: 'One Docker image running Caddy as a reverse proxy: static/JS demos are served directly, and Python demos are pulled in as git submodules and run with Streamlit as internal processes proxied at /demos/<slug>. Streamlit is a deliberately lightweight, portable choice for this - it turns a plain Python script into a shareable web UI with no separate frontend to build, so a new proof of concept can go from a script to a live, clickable demo in a single small app file. GitHub Actions builds the image, pushes it to ghcr.io, and updates the Azure Container App on every push to main; individual demo repos can auto-bump their submodule reference here to trigger a redeploy on their own push.'
+        text: 'One Docker image runs Caddy as a reverse proxy. Static and JavaScript demos are served directly, while Python demos are pulled in as git submodules and run with Streamlit as internal processes proxied at /demos/<slug>. Streamlit is a deliberately lightweight, portable choice because it turns a plain Python script into a shareable web UI with no separate frontend to build. A new proof of concept can therefore go from a script to a live, clickable demo in one small app file. GitHub Actions builds the image, pushes it to ghcr.io, and updates the Azure Container App on every push to main. Individual demo repos can auto-bump their submodule reference here to trigger a redeploy on their own push.'
       },
       {
         subtitle: 'Impact',
-        text: 'New POC demos go live with just a submodule add, a config entry, and a Caddy route - no manual server provisioning per demo. This is intentionally a fast way to share proof-of-concept work, not a production deployment pattern.'
+        text: 'New POC demos go live with a submodule add, a config entry, and a Caddy route, with no manual server provisioning per demo. This is intentionally a fast way to share proof-of-concept work, not a production deployment pattern.'
       }
     ],
     stack: ['Docker', 'Caddy', 'Streamlit', 'GitHub Actions', 'Azure Container Apps', 'ghcr.io', 'Python'],
@@ -92,7 +92,7 @@ export const projects = [
     description: [
       {
         subtitle: 'Problem',
-        text: 'A quoted return in isolation is meaningless - outperformance can be genuine skill (alpha) or just exposure to well-known, cheaply-replicable risk factors, and naive OLS often overstates significance when residuals are autocorrelated.'
+        text: 'A quoted return in isolation is meaningless. Outperformance can be genuine skill (alpha) or exposure to well-known, cheaply replicable risk factors, while naive OLS often overstates significance when residuals are autocorrelated.'
       },
       {
         subtitle: 'Approach',
@@ -223,9 +223,9 @@ const Projects = () => {
       <h2>Projects</h2>
       <p className="projects-note">
         Infrastructure choices below (e.g. single container, Docker Compose, shared hosting) were
-        made to keep costs and operational overhead low for personal projects and demos - they
-        aren't intended to reflect how architecture or infrastructure decisions would be made in
-        an enterprise environment.
+        made to keep costs and operational overhead low for personal projects and demos. They are
+        not intended to reflect how architecture or infrastructure decisions would be made in an
+        enterprise environment.
       </p>
 
       <h3 className="project-group-heading">Public Projects</h3>
