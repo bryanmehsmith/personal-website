@@ -24,7 +24,7 @@ export const skillGroups = [
     title: 'Cloud',
     tiers: {
       'Core': ['Azure Container Apps', 'Azure Static Web Apps', 'Azure Functions'],
-      'Working knowledge': ['Azure Key Vault', 'Azure Logic Apps'],
+      'Working knowledge': ['Azure Key Vault', 'Azure Logic Apps', 'Microsoft Entra ID', 'SAML SSO'],
       'Familiar with': []
     }
   },
@@ -94,7 +94,7 @@ export const skillGroups = [
     title: 'Software Engineering',
     tiers: {
       'Core': [],
-      'Working knowledge': ['JavaScript', 'React'],
+      'Working knowledge': ['JavaScript', 'React', 'Microsoft Teams Bots', 'Adaptive Cards'],
       'Familiar with': []
     }
   }

@@ -55,6 +55,18 @@ describe('Experience component', () => {
     expect(section).toHaveTextContent(/environment setup/i);
   });
 
+  test('shows internal bot and enterprise identity integration experience', () => {
+    render(<Experience />);
+
+    const section = document.querySelector('.experience.card-container');
+    expect(section).toHaveTextContent(/Microsoft Teams bots/i);
+    expect(section).toHaveTextContent(/Adaptive Cards/i);
+    expect(section).toHaveTextContent(/acknowledgement tracking/i);
+    expect(section).toHaveTextContent(/Microsoft Entra application identities/i);
+    expect(section).toHaveTextContent(/SAML SSO/i);
+    expect(section).toHaveTextContent(/MFA requirements/i);
+  });
+
   test('quantifies the platform and reporting footprint at an aggregate level', () => {
     render(<Experience />);
 

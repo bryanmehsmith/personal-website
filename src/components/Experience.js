@@ -43,7 +43,7 @@ export const experiences = [
       },
       {
         subtitle: 'Internal Applications',
-        text: 'Built internal web applications on Azure Container Apps and Azure Static Web Apps, giving teams a dashboard to trigger and monitor pipeline runs, view data, and receive notifications.'
+        text: 'Built internal web applications on Azure Container Apps and Azure Static Web Apps, plus Microsoft Teams bots that automate collaboration workflows through group chat creation, Adaptive Cards, and acknowledgement tracking.'
       },
       {
         subtitle: 'Team Leadership & Delivery',
@@ -51,7 +51,7 @@ export const experiences = [
       },
       {
         subtitle: 'Azure Cloud Integration & Security',
-        text: 'Built secure, scalable automation with Azure Logic Apps, Function Apps, Storage Accounts, and Key Vault, with enterprise-grade authentication and secrets management across environments.'
+        text: 'Built secure, scalable automation with Azure Logic Apps, Function Apps, Storage Accounts, and Key Vault, with enterprise-grade authentication and secrets management across environments. Configured Microsoft Entra application identities and implemented SAML SSO integrations that support enterprise MFA requirements across applications hosted on Azure and enterprise SaaS platforms.'
       }
     ]
   },

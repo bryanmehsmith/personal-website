@@ -82,6 +82,14 @@ describe('Skills component', () => {
     // Git is table stakes - listing it adds no signal.
     expect(screen.queryByText('Git')).not.toBeInTheDocument();
   });
+
+  test('lists identity and Teams bot skills as working knowledge', () => {
+    render(<Skills />);
+
+    ['Microsoft Entra ID', 'SAML SSO', 'Microsoft Teams Bots', 'Adaptive Cards'].forEach(skill => {
+      expect(screen.getByText(skill).closest('.skill-tier')).toHaveTextContent('Working knowledge');
+    });
+  });
 });
 
 describe('skillGroups data integrity', () => {
