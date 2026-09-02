@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
+import manifest from '../public/manifest.json';
 
 const routerFuture = { v7_startTransition: true, v7_relativeSplatPath: true };
 
@@ -14,9 +15,35 @@ const renderApp = (initialEntries = ['/']) =>
   );
 
 describe('App navigation', () => {
+  beforeEach(() => {
+    document.head.innerHTML = `
+      <link rel="canonical" href="https://www.bryansmith.co.za/" />
+      <meta property="og:url" content="https://www.bryansmith.co.za/" />
+    `;
+  });
+
   test('renders summary page by default', () => {
     renderApp();
     expect(screen.getByRole('heading', { level: 2, name: /summary/i })).toBeInTheDocument();
+  });
+
+  test('opens the summary page at the installed app start URL', () => {
+    renderApp([manifest.start_url]);
+
+    expect(screen.getByRole('heading', { level: 2, name: /summary/i })).toBeInTheDocument();
+  });
+
+  test('publishes the current route under the apex canonical domain', () => {
+    renderApp(['/skills']);
+
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://bryansmith.co.za/skills'
+    );
+    expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute(
+      'content',
+      'https://bryansmith.co.za/skills'
+    );
   });
 
   test('navigates between sections when nav links are clicked', async () => {

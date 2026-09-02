@@ -12,15 +12,15 @@ export const projects = [
       },
       {
         subtitle: 'Approach',
-        text: 'A modular, phased Docker Compose stack uses MinIO, Nessie, and Trino/DuckDB as the lakehouse core; Dagster for batch orchestration; dbt for transforms and tests; Redpanda for streaming; a local LLM (Ollama) and RAG layer (Qdrant, Open WebUI), including a text-to-SQL pipeline with its own eval harness; Metabase for BI; and a full observability stack (Prometheus, Grafana, Loki, cAdvisor). The stack starts with one command and can scale from one machine to a small cluster without changing tools.'
+        text: 'A modular, phased Docker Compose stack uses MinIO, Nessie, Apache Iceberg, and Trino/DuckDB as the lakehouse core; Dagster for batch orchestration; dbt for transforms and tests; Redpanda for streaming; and Ollama, Qdrant, and Open WebUI for local AI and RAG, including a text-to-SQL pipeline with an eval harness. A FastAPI backend and React/Vite frontend provide platform access and native application reporting. Prometheus, Grafana, Loki, Grafana Alloy, and cAdvisor provide observability.'
       },
       {
         subtitle: 'Impact',
-        text: 'A fully working, from-scratch modern data platform spanning storage, orchestration, streaming, ML/LLM (RAG and text-to-SQL with measurable eval accuracy), BI, and observability.'
+        text: 'An integrated, from-scratch modern data platform spanning storage, orchestration, streaming, local AI/RAG, text-to-SQL with an eval harness, native application reporting, and observability.'
       }
     ],
-    stack: ['Dagster', 'Apache Iceberg', 'Nessie', 'Trino', 'DuckDB', 'dbt', 'Redpanda', 'MinIO', 'Ollama', 'Qdrant', 'Open WebUI', 'Metabase', 'Prometheus', 'Grafana', 'Loki', 'FastAPI', 'React', 'Docker Compose'],
-    steps: ['Storage & Catalog', 'Orchestration & Transform', 'Streaming', 'Query', 'AI/RAG + Text-to-SQL', 'BI & Observability'],
+    stack: ['Dagster', 'Apache Iceberg', 'Nessie', 'Trino', 'DuckDB', 'dbt', 'Redpanda', 'MinIO', 'Ollama', 'Qdrant', 'Open WebUI', 'Prometheus', 'Grafana', 'Loki', 'Grafana Alloy', 'cAdvisor', 'FastAPI', 'React', 'Vite', 'Docker Compose'],
+    steps: ['Storage & Catalog', 'Orchestration & Transform', 'Streaming', 'Query', 'AI/RAG + Text-to-SQL', 'Native Reporting & Observability'],
     links: { repo: 'https://github.com/bryanmehsmith/local-data-platform', demo: null }
   },
   {
@@ -63,7 +63,7 @@ export const projects = [
     ],
     stack: ['React', 'react-router-dom', 'GitHub Actions', 'Azure Static Web Apps', 'LaTeX', 'latexmk'],
     steps: ['LaTeX Resume Source', 'GitHub Actions CI', 'Azure Static Web Apps'],
-    links: { repo: 'https://github.com/bryanmehsmith/personal-website', demo: 'https://www.bryansmith.co.za' }
+    links: { repo: 'https://github.com/bryanmehsmith/personal-website', demo: 'https://bryansmith.co.za' }
   },
   {
     name: 'JSE Momentum Factor Backtest',

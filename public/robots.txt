@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.bryansmith.co.za/sitemap.xml
+Sitemap: https://bryansmith.co.za/sitemap.xml

@@ -94,7 +94,7 @@ describe('Projects component', () => {
     );
     expect(within(portfolioCard).getByRole('link', { name: /live demo/i })).toHaveAttribute(
       'href',
-      'https://www.bryansmith.co.za'
+      'https://bryansmith.co.za'
     );
   });
 
@@ -119,6 +119,19 @@ describe('Projects component', () => {
     expect(factorCard).toHaveTextContent(/static JavaScript frontend/i);
     expect(factorCard).toHaveTextContent(/bundled monthly snapshots/i);
     expect(factorCard).toHaveTextContent(/Python parity/i);
+  });
+
+  test('describes the current local data platform reporting and application stack', () => {
+    render(<Projects />);
+
+    const localDataPlatformCard = screen.getByText('Local Data Platform').closest('.project-card');
+    expect(localDataPlatformCard).toHaveTextContent(/native application reporting/i);
+    expect(localDataPlatformCard).toHaveTextContent(/FastAPI/i);
+    expect(localDataPlatformCard).toHaveTextContent(/React/i);
+    expect(localDataPlatformCard).toHaveTextContent(/Vite/i);
+    expect(localDataPlatformCard).toHaveTextContent(/Grafana Alloy/i);
+    expect(localDataPlatformCard).not.toHaveTextContent(/Metabase/i);
+    expect(localDataPlatformCard).not.toHaveTextContent(/measurable eval accuracy/i);
   });
 
   test('shows a disabled demo button alongside a working repo link', () => {

@@ -44,14 +44,14 @@ The "Download CV" button links to `/resume.pdf`. The source of truth is the LaTe
 [`resume/resume.tex`](resume/resume.tex); `public/resume.pdf` is a committed, checked-in copy so
 `npm start` always has something real to serve locally.
 
-- `.github/workflows/azure-static-web-apps.yml` recompiles `resume/resume.tex` with `latexmk` on
-  every CI run and overwrites `public/resume.pdf` before `npm run build`, so production always ships
-  the PDF that matches the current `.tex` source - the committed copy is just a local-dev
-  convenience, not the canonical output.
+- `.github/workflows/azure-static-web-apps.yml` recompiles `resume/resume.tex` with `latexmk` and
+  TeX Live 2026 on every CI run, verifies that the result is tagged for assistive technology, and
+  overwrites `public/resume.pdf` before `npm run build`. Production therefore ships the PDF that
+  matches the current `.tex` source; the committed copy is only a local-dev convenience.
 - To update the CV content: edit `resume/resume.tex`, then recompile and commit the refreshed PDF
-  (`latexmk -pdf -output-directory=public resume/resume.tex`, requires a local TeX Live install) so
-  local dev stays in sync. If you don't have LaTeX installed, it's fine to skip this - CI will
-  regenerate the correct PDF on the next push.
+  (`latexmk -pdf -output-directory=public resume/resume.tex`, requires TeX Live 2025 or newer) so
+  local dev stays in sync. If you don't have a current LaTeX install, skip this; CI will regenerate
+  the correct tagged PDF on the next push.
 
 ## Testing
 
@@ -75,3 +75,7 @@ The project maintains high code quality with coverage thresholds set at 80% for:
 
 CI fails the build if any metric drops below the 80% threshold. Run `npm run test:coverage` for the
 current figures.
+
+## License
+
+This project is available under the [MIT License](LICENSE).

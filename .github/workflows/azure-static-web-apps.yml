@@ -24,15 +24,19 @@ jobs:
         env:
           CI: 'true'
 
-      - name: Install LaTeX toolchain
+      - name: Compile tagged resume PDF
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b
+        with:
+          root_file: resume/resume.tex
+          docker_image: ghcr.io/xu-cheng/texlive-alpine@sha256:11383430b9a3e48c0b79339f34d8092f942f897d91ab3749d4899d06731fea7f
+          work_in_root_file_dir: true
+
+      - name: Verify and publish resume PDF
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended latexmk
-
-      - name: Compile resume.tex to public/resume.pdf
-        run: |
-          latexmk -pdf -interaction=nonstopmode -output-directory=/tmp/resume-build resume/resume.tex
-          cp /tmp/resume-build/resume.pdf public/resume.pdf
+          sudo apt-get install -y poppler-utils
+          pdfinfo resume/resume.pdf | grep -Eq '^Tagged:[[:space:]]+yes$'
+          cp resume/resume.pdf public/resume.pdf
 
       - name: Build
         run: npm run build
