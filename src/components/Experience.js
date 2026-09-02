@@ -35,7 +35,7 @@ export const experiences = [
       },
       {
         subtitle: 'AI-Augmented Workflows',
-        text: 'Embedded LLMs into operational processes via Azure AI Foundry. OCR paired with LLM classification turns document images into structured data, and speech-to-text plus LLM extraction turns meeting discussions into tracked, documented work items. I also built AI-assisted developer tooling to support the team\'s day-to-day engineering work.'
+        text: 'Embedded LLMs into operational processes via Azure AI Foundry. OCR paired with LLM classification turns document images into structured data, and speech-to-text plus LLM extraction turns meeting discussions into tracked, documented work items. I also built an LLM-powered spam detection agent to classify inbound messages, a query router agent to direct user requests to the appropriate tool, workflow, or specialist agent, and AI-assisted developer tooling to support the team\'s day-to-day engineering work.'
       },
       {
         subtitle: 'Monitoring & Alerting',

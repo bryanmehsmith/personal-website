@@ -37,6 +37,14 @@ describe('Experience component', () => {
     });
   });
 
+  test('includes the LLM spam detector and query router achievements', () => {
+    render(<Experience />);
+
+    const section = document.querySelector('.experience.card-container');
+    expect(section).toHaveTextContent(/spam detection agent/i);
+    expect(section).toHaveTextContent(/query router agent/i);
+  });
+
   test('quantifies the platform and reporting footprint at an aggregate level', () => {
     render(<Experience />);
 
