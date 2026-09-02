@@ -105,6 +105,38 @@ describe('Projects component', () => {
     expect(within(card).getByText('In progress')).toBeVisible();
   });
 
+  test('describes self-hosted home network infrastructure without public links', () => {
+    render(<Projects />);
+
+    const card = screen.getByText('Home Network Infrastructure').closest('.project-card');
+    ['self-hosted Linux', 'Pi-hole', 'Unbound', 'recursive DNS', 'caching', 'full-tunnel WireGuard VPN'].forEach(term => {
+      expect(card).toHaveTextContent(new RegExp(term, 'i'));
+    });
+    expect(card.querySelector('.project-links')).not.toBeInTheDocument();
+  });
+
+  test('describes the hybrid local AI development workflow without public links', () => {
+    render(<Projects />);
+
+    const card = screen.getByText('Local AI Development Environment').closest('.project-card');
+    ['OpenCode', 'Ollama', 'Qwen', 'Gemma', 'hosted frontier models', 'orchestration', 'planning', 'review', 'discovery', 'bounded implementation', 'hosted token use'].forEach(term => {
+      expect(card).toHaveTextContent(new RegExp(term, 'i'));
+    });
+    expect(card.querySelector('.project-links')).not.toBeInTheDocument();
+  });
+
+  test('keeps home engineering projects below quantitative and security work', () => {
+    const names = projects.map(project => project.name);
+    const firstHomeProject = Math.min(
+      names.indexOf('Home Network Infrastructure'),
+      names.indexOf('Local AI Development Environment')
+    );
+
+    expect(firstHomeProject).toBeGreaterThan(names.indexOf('JSE Momentum Factor Backtest'));
+    expect(firstHomeProject).toBeGreaterThan(names.indexOf('Factor Regression Lab'));
+    expect(firstHomeProject).toBeGreaterThan(names.indexOf('Security Anti-Patterns'));
+  });
+
   test('describes the current browser-first momentum and factor regression demos', () => {
     render(<Projects />);
 

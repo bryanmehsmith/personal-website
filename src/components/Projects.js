@@ -129,6 +129,48 @@ export const projects = [
     links: { repo: 'https://github.com/bryanmehsmith/security-anti-patterns', demo: 'https://demo.bryansmith.co.za/demos/security-anti-patterns/' }
   },
   {
+    name: 'Home Network Infrastructure',
+    tagline: 'A self-hosted Linux network stack for network-wide filtering, recursive DNS resolution and caching, and full-tunnel remote access.',
+    description: [
+      {
+        subtitle: 'Problem',
+        text: 'Wanted one maintainable place to filter unwanted network requests, resolve and cache DNS locally, and reach home network resources while away.'
+      },
+      {
+        subtitle: 'Approach',
+        text: 'Pi-hole provides network-wide DNS filtering, while Unbound provides recursive DNS resolution and local caching. A full-tunnel WireGuard VPN routes remote device traffic through the home network and its DNS policy.'
+      },
+      {
+        subtitle: 'Result',
+        text: 'A self-hosted Linux service stack that applies the same DNS controls to local devices and remote devices connected through the VPN.'
+      }
+    ],
+    stack: ['Linux', 'Pi-hole', 'Unbound', 'WireGuard', 'DNS'],
+    steps: ['DNS Request', 'Pi-hole Filter', 'Unbound Resolution & Cache', 'WireGuard Remote Access'],
+    links: { repo: null, demo: null }
+  },
+  {
+    name: 'Local AI Development Environment',
+    tagline: 'A hybrid coding workflow that combines hosted model oversight with local Qwen and Gemma models served through Ollama.',
+    description: [
+      {
+        subtitle: 'Problem',
+        text: 'Hosted coding agents are useful for complex decisions, but routine and bounded tasks can consume hosted tokens even when local compute is available.'
+      },
+      {
+        subtitle: 'Approach',
+        text: 'Hosted frontier models handle orchestration, planning, and review. Through OpenCode, they delegate discovery and bounded implementation tasks to Qwen and Gemma models served on local hardware with Ollama.'
+      },
+      {
+        subtitle: 'Result',
+        text: 'The workflow offloads suitable work to local compute, reducing hosted token use while retaining hosted model oversight for higher judgement tasks.'
+      }
+    ],
+    stack: ['OpenCode', 'Ollama', 'Qwen', 'Gemma', 'Local LLMs'],
+    steps: ['Orchestrate', 'Plan', 'Delegate Locally', 'Review'],
+    links: { repo: null, demo: null }
+  },
+  {
     name: 'NN Foundations Lab',
     status: 'In progress',
     tagline: 'An in progress guided lab that builds neural network fundamentals from explicit mathematics and small implementations.',
@@ -199,6 +241,7 @@ const DisabledLink = ({ children }) => {
 };
 
 export const ProjectLinks = ({ links }) => (
+  !links?.repo && !links?.demo ? null :
   <div className="project-links" onClick={(e) => e.stopPropagation()}>
     {links.repo ? (
       <a

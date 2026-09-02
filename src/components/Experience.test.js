@@ -32,9 +32,16 @@ describe('Experience component', () => {
   test('includes representative bullet subtitles without pinning full copy', () => {
     render(<Experience />);
 
-    ['Microsoft Fabric Platform Engineering', 'Investment Data & Reporting', 'Operational Diagnosis & Reliability', 'Performance Optimisation'].forEach(text => {
+    ['Microsoft Fabric Platform Engineering', 'Investment Data & Reporting', 'Data Modelling & Data Contracts', 'Enterprise Integration & Event Driven Processing', 'Applied Modelling & Feature Engineering', 'AI & Governed Workflows', 'Internal Products & Team Automation', 'Cloud, Identity & Security', 'Monitoring, Diagnosis & Reliability', 'Stakeholder Delivery & Technical Leadership', 'Performance Optimisation'].forEach(text => {
       expect(screen.getByText(text)).toBeInTheDocument();
     });
+  });
+
+  test('presents ten focused Peregrine achievements', () => {
+    render(<Experience />);
+
+    const peregrineCard = document.querySelector('.experience .card-full-width');
+    expect(peregrineCard.querySelectorAll('.card-list-item')).toHaveLength(10);
   });
 
   test('includes the LLM spam detector and query router achievements', () => {
@@ -71,7 +78,7 @@ describe('Experience component', () => {
     render(<Experience />);
 
     const peregrineCard = document.querySelector('.experience .card-full-width');
-    ['Lakehouse', 'Direct Lake', 'semantic models', 'paginated reporting', 'positions', 'trades', 'reconciliation', 'REST API', 'SFTP', 'human review', 'source rows', 'build versus buy'].forEach(term => {
+    ['Lakehouse', 'Direct Lake', 'semantic models', 'paginated reporting', 'positions', 'trades', 'reconciliation', 'REST API', 'SFTP', 'event driven', 'dimensional models', 'data contracts', 'temporal decomposition', 'derived labels', 'human review', 'alerting', 'source rows', 'build versus buy'].forEach(term => {
       expect(peregrineCard).toHaveTextContent(new RegExp(term, 'i'));
     });
   });

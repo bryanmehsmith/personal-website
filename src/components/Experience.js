@@ -15,27 +15,39 @@ export const experiences = [
       },
       {
         subtitle: 'Investment Data & Reporting',
-        text: 'Delivered governed reporting for positions, trades, returns, exposure, reconciliation, and investor reporting across multiple business functions. Designed data contracts, dimensional models, and compatible reporting changes across data, semantic, and presentation layers.'
+        text: 'Delivered governed reporting for positions, trades, returns, exposure, reconciliation, and investor reporting across multiple business functions. Coordinated compatible reporting changes across data, semantic, and presentation layers.'
       },
       {
-        subtitle: 'Enterprise Integration & Automation',
-        text: 'Built ingestion, reconciliation, synchronisation, and delivery flows across portfolio, CRM, finance, web, REST API, SFTP, and file sources. Introduced event driven processing where appropriate and built guarded integrations with explicit access controls.'
+        subtitle: 'Data Modelling & Data Contracts',
+        text: 'Designed and maintained dimensional models, data contracts, database schemas, relationships, and access controls. Managed structural changes across pipelines, semantic models, and reports while preserving compatibility.'
+      },
+      {
+        subtitle: 'Enterprise Integration & Event Driven Processing',
+        text: 'Built ingestion, reconciliation, synchronisation, and delivery flows across portfolio, CRM, finance, web, REST API, SFTP, and file sources. Introduced event driven processing where appropriate, triggering downstream work when files arrive.'
+      },
+      {
+        subtitle: 'Applied Modelling & Feature Engineering',
+        text: 'Built unsupervised models that flag observations outside expected patterns. Engineered features for analysis, including temporal decomposition and derived labels used in stakeholder workflows.'
       },
       {
         subtitle: 'AI & Governed Workflows',
         text: 'Embedded OCR, speech to text, LLM extraction, classification, unsupervised modelling, and agent routing into operational workflows. Built a spam detection agent powered by an LLM for inbound messages and a query router agent for tools, workflows, or specialist agents, with human review and engineering safeguards.'
       },
       {
-        subtitle: 'Internal Products, Cloud & Identity',
-        text: 'Built secure internal applications and Microsoft Teams bots using React, TypeScript, Node.js, Azure, Microsoft Graph, Adaptive Cards, group chat creation, and acknowledgement tracking. Configured Microsoft Entra application identities, OAuth, SAML SSO, MFA requirements, Key Vault, and infrastructure as code.'
+        subtitle: 'Internal Products & Team Automation',
+        text: 'Built secure internal applications and Microsoft Teams bots using React, TypeScript, Node.js, Microsoft Graph, Adaptive Cards, group chat creation, and acknowledgement tracking.'
       },
       {
-        subtitle: 'Operational Diagnosis & Reliability',
-        text: 'Diagnosed reporting and data issues end to end by tracing symptoms through paginated reports, semantic models, pipelines, historical records, and source rows. Added automated tests, alerting, observability, deployment checks, and rollback safeguards.'
+        subtitle: 'Cloud, Identity & Security',
+        text: 'Built Azure services and infrastructure as code with guarded deployments. Configured Microsoft Entra application identities, OAuth, SAML SSO, MFA requirements, Key Vault, least privilege, and explicit access controls.'
       },
       {
-        subtitle: 'Technical Leadership & Governance',
-        text: 'Work directly with stakeholders and vendors across requirements analysis, solution design, architectural planning, environment setup, implementation, deployment, and support. Guide platform tradeoffs and build versus buy decisions, mentor engineers, review code, and apply least privilege and structured change control.'
+        subtitle: 'Monitoring, Diagnosis & Reliability',
+        text: 'Added automated tests, alerting, observability, deployment checks, and rollback safeguards. Diagnosed reporting and data issues end to end by tracing symptoms through paginated reports, semantic models, pipelines, historical records, and source rows.'
+      },
+      {
+        subtitle: 'Stakeholder Delivery & Technical Leadership',
+        text: 'Work directly with stakeholders and vendors across requirements analysis, solution design, architectural planning, environment setup, implementation, deployment, and support. Guide platform tradeoffs and build versus buy decisions, mentor engineers, review code, and apply structured change control.'
       }
     ]
   },
