@@ -18,6 +18,7 @@ describe('Skills component', () => {
       'Infrastructure & DevOps',
       'Programming & Scripting',
       'Software Engineering',
+      'Investment Data & Reporting',
     ];
 
     expectedGroups.forEach(group => {
@@ -88,6 +89,30 @@ describe('Skills component', () => {
 
     ['Microsoft Entra ID', 'SAML SSO', 'Microsoft Teams Bots', 'Adaptive Cards'].forEach(skill => {
       expect(screen.getByText(skill).closest('.skill-tier')).toHaveTextContent('Working knowledge');
+    });
+  });
+
+  test('lists evidence-backed platform, cloud, software, and operational skills', () => {
+    render(<Skills />);
+
+    [
+      'Microsoft Fabric Lakehouse',
+      'Direct Lake',
+      'Semantic Models',
+      'TMDL',
+      'Bicep',
+      'OAuth',
+      'Conditional Access',
+      'TypeScript',
+      'Node.js',
+      'Microsoft Graph',
+      'Observability',
+      'Root Cause Analysis',
+      'Positions & Trades',
+      'Reconciliation',
+      'Investor Reporting',
+    ].forEach(skill => {
+      expect(screen.getByText(skill)).toBeInTheDocument();
     });
   });
 });

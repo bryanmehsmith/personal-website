@@ -288,6 +288,24 @@ p:last-child {
   transition: transform 0.15s ease;
 }
 
+.project-title {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  color: var(--accent-color);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .project-card[open] .project-name::before {
   transform: rotate(90deg);
 }

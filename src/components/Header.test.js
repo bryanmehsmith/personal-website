@@ -72,4 +72,9 @@ describe('Header component', () => {
     expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /download cv/i })).toHaveAttribute('href', '/resume.pdf');
   });
+
+  test('uses the evidence-based data platform headline', () => {
+    renderHeader();
+    expect(screen.getByText('Data Scientist | Data Platform & Analytics Engineering')).toBeInTheDocument();
+  });
 });

@@ -41,7 +41,7 @@ const Header = () => {
       <div className="header-content">
         <div className="header-identity">
           <h1 className="header-title">Bryan Smith</h1>
-          <p className="header-role">Data Scientist &amp; Data Engineer</p>
+          <p className="header-role">Data Scientist | Data Platform &amp; Analytics Engineering</p>
           <p className="header-breadth">Data Analytics • Business Intelligence • Software Engineering</p>
           <p className="header-specialisms">Azure • Microsoft Fabric • Spark • Python • SQL</p>
           <p className="header-location">Pretoria, South Africa</p>

@@ -15,8 +15,8 @@ export const skillGroups = [
   {
     title: 'Business Intelligence',
     tiers: {
-      'Core': ['Power BI Reports', 'Power BI Paginated Reports'],
-      'Working knowledge': ['DAX'],
+      'Core': ['Power BI Reports', 'Power BI Paginated Reports', 'DAX'],
+      'Working knowledge': [],
       'Familiar with': []
     }
   },
@@ -24,7 +24,7 @@ export const skillGroups = [
     title: 'Cloud',
     tiers: {
       'Core': ['Azure Container Apps', 'Azure Static Web Apps', 'Azure Functions'],
-      'Working knowledge': ['Azure Key Vault', 'Azure Logic Apps', 'Microsoft Entra ID', 'SAML SSO'],
+      'Working knowledge': ['Azure Key Vault', 'Azure Logic Apps', 'Microsoft Entra ID', 'OAuth', 'SAML SSO', 'Conditional Access', 'Bicep'],
       'Familiar with': []
     }
   },
@@ -39,8 +39,8 @@ export const skillGroups = [
   {
     title: 'Data Platforms & Warehousing',
     tiers: {
-      'Core': ['Microsoft Fabric', 'Microsoft SQL Server'],
-      'Working knowledge': ['Postgres'],
+      'Core': ['Microsoft Fabric', 'Microsoft Fabric Lakehouse', 'Direct Lake', 'Semantic Models', 'Microsoft SQL Server'],
+      'Working knowledge': ['TMDL', 'Postgres'],
       'Familiar with': ['MySQL', 'Teradata']
     }
   },
@@ -78,7 +78,7 @@ export const skillGroups = [
     title: 'Infrastructure & DevOps',
     tiers: {
       'Core': ['Azure DevOps', 'Monitoring & Alerting', 'Docker'],
-      'Working knowledge': ['Airflow', 'CI/CD'],
+      'Working knowledge': ['Airflow', 'CI/CD', 'Observability', 'Root Cause Analysis'],
       'Familiar with': []
     }
   },
@@ -94,7 +94,15 @@ export const skillGroups = [
     title: 'Software Engineering',
     tiers: {
       'Core': [],
-      'Working knowledge': ['JavaScript', 'React', 'Microsoft Teams Bots', 'Adaptive Cards'],
+      'Working knowledge': ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Microsoft Graph', 'Microsoft Teams Bots', 'Adaptive Cards'],
+      'Familiar with': []
+    }
+  },
+  {
+    title: 'Investment Data & Reporting',
+    tiers: {
+      'Core': ['Positions & Trades', 'Reconciliation', 'Investor Reporting'],
+      'Working knowledge': ['Returns & Performance', 'Exposure Reporting'],
       'Familiar with': []
     }
   }

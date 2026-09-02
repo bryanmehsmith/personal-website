@@ -32,7 +32,7 @@ describe('Experience component', () => {
   test('includes representative bullet subtitles without pinning full copy', () => {
     render(<Experience />);
 
-    ['Enterprise Data Integration', 'Azure Cloud Integration & Security', 'Performance Optimisation'].forEach(text => {
+    ['Microsoft Fabric Platform Engineering', 'Investment Data & Reporting', 'Operational Diagnosis & Reliability', 'Performance Optimisation'].forEach(text => {
       expect(screen.getByText(text)).toBeInTheDocument();
     });
   });
@@ -67,13 +67,22 @@ describe('Experience component', () => {
     expect(section).toHaveTextContent(/MFA requirements/i);
   });
 
-  test('quantifies the platform and reporting footprint at an aggregate level', () => {
+  test('shows governed platform, reporting, integration, and diagnostic depth', () => {
     render(<Experience />);
 
-    const section = document.querySelector('.experience.card-container');
-    expect(section).toHaveTextContent(/100\+ (production )?pipelines/i);
-    expect(section).toHaveTextContent(/dozens of source systems/i);
-    expect(section).toHaveTextContent(/enterprise reporting estate/i);
+    const peregrineCard = document.querySelector('.experience .card-full-width');
+    ['Lakehouse', 'Direct Lake', 'semantic models', 'paginated reporting', 'positions', 'trades', 'reconciliation', 'REST API', 'SFTP', 'human review', 'source rows', 'build versus buy'].forEach(term => {
+      expect(peregrineCard).toHaveTextContent(new RegExp(term, 'i'));
+    });
+  });
+
+  test('does not publish unverified Peregrine estate counts or sole authorship', () => {
+    render(<Experience />);
+
+    const peregrineCard = document.querySelector('.experience .card-full-width');
+    expect(peregrineCard).not.toHaveTextContent(/100\+ (production )?pipelines/i);
+    expect(peregrineCard).not.toHaveTextContent(/hundreds of modelled tables/i);
+    expect(peregrineCard).not.toHaveTextContent(/built the platform from the ground up/i);
   });
 
   test('does not state raw data volume', () => {

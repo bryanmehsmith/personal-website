@@ -11,7 +11,7 @@ describe('Summary component', () => {
     expect(section).not.toBeNull();
 
     const paragraphs = section?.querySelectorAll('p');
-    expect(paragraphs).toHaveLength(4);
+    expect(paragraphs).toHaveLength(3);
   });
 
   test('mentions representative skills and outcomes', () => {
@@ -23,23 +23,32 @@ describe('Summary component', () => {
     expect(section).toHaveTextContent(/azure/i);
   });
 
-  test('quantifies the platform at an aggregate level rather than describing it abstractly', () => {
+  test('frames the work around investment management and full lifecycle delivery', () => {
     render(<Summary />);
 
     const section = screen.getByRole('heading', { name: /summary/i }).closest('section');
-    expect(section).toHaveTextContent(/100\+ pipelines/i);
-    expect(section).toHaveTextContent(/dozens of source systems/i);
-    expect(section).toHaveTextContent(/enterprise reporting estate/i);
+    expect(section).toHaveTextContent(/investment management/i);
+    expect(section).toHaveTextContent(/requirements and architecture through deployment and support/i);
+    expect(section).toHaveTextContent(/observability/i);
+    expect(section).toHaveTextContent(/root cause diagnosis/i);
   });
 
-  test('highlights technical tooling without asserting exact copy', () => {
+  test('highlights the core platform and product capabilities', () => {
     render(<Summary />);
 
     const section = screen.getByRole('heading', { name: /summary/i }).closest('section');
     expect(section).not.toBeNull();
 
-    ['Spark', 'Airflow', 'Python'].forEach(keyword => {
+    ['Microsoft Fabric', 'Lakehouse', 'semantic models', 'Power BI', 'secure internal tools'].forEach(keyword => {
       expect(section).toHaveTextContent(keyword);
     });
+  });
+
+  test('does not publish unverified estate counts', () => {
+    render(<Summary />);
+
+    const section = screen.getByRole('heading', { name: /summary/i }).closest('section');
+    expect(section).not.toHaveTextContent(/100\+ pipelines/i);
+    expect(section).not.toHaveTextContent(/hundreds of modelled tables/i);
   });
 });

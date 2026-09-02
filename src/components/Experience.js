@@ -7,51 +7,35 @@ export const experiences = [
     role: 'Data Scientist',
     duration: 'Nov 2021 - Present',
     location: 'Sandton',
-    summary: 'Built and own Peregrine\'s end-to-end data platform: 100+ production pipelines drawing from dozens of source systems into hundreds of modelled tables, feeding an enterprise reporting estate used across the business.',
+    summary: 'Built and now own core parts of the production data and analytics platform, supporting investment data, reporting, enterprise integrations, and internal operational tooling.',
     description: [
       {
-        subtitle: 'Data Platform Ownership',
-        text: 'Built the platform from the ground up, initially using Airflow, Docker, and Postgres before migrating to Microsoft Fabric Pipelines, PySpark, and T-SQL. It now runs 100+ pipelines across hundreds of modelled tables. I own platform-level architecture and administration.'
+        subtitle: 'Microsoft Fabric Platform Engineering',
+        text: 'Engineered a Microsoft Fabric platform spanning Lakehouse, pipelines, PySpark, T-SQL, Direct Lake semantic models, Power BI, paginated reporting, and governed deployment workflows.'
       },
       {
-        subtitle: 'Enterprise Data Integration',
-        text: 'Unified dozens of source systems into a single analytics ecosystem, spanning file transfers, APIs, and web-based integrations, including sources with no API. I also built and maintained functionality within a CRM platform, owning it as a system of record for the analytics team.'
+        subtitle: 'Investment Data & Reporting',
+        text: 'Delivered governed reporting for positions, trades, returns, exposure, reconciliation, and investor reporting across multiple business functions. Designed data contracts, dimensional models, and compatible reporting changes across data, semantic, and presentation layers.'
       },
       {
-        subtitle: 'Stream-Based Ingestion',
-        text: 'Replaced schedule-based file ingestion with event-driven, stream-based processing, triggering downstream processing the instant a file lands. This removed the guesswork of scheduling around estimated arrival times and cut the lag between a file arriving and the data being available.'
+        subtitle: 'Enterprise Integration & Automation',
+        text: 'Built ingestion, reconciliation, synchronisation, and delivery flows across portfolio, CRM, finance, web, REST API, SFTP, and file sources. Introduced event driven processing where appropriate and built guarded integrations with explicit access controls.'
       },
       {
-        subtitle: 'Machine Learning & Feature Engineering',
-        text: 'Built unsupervised models that flag data points falling outside a dataset\'s expected norm, surfacing anomalies for investigation. Engineered features for downstream analysis, including temporal decomposition and derived labels that drive stakeholder analyses.'
+        subtitle: 'AI & Governed Workflows',
+        text: 'Embedded OCR, speech to text, LLM extraction, classification, unsupervised modelling, and agent routing into operational workflows. Built a spam detection agent powered by an LLM for inbound messages and a query router agent for tools, workflows, or specialist agents, with human review and engineering safeguards.'
       },
       {
-        subtitle: 'BI & Reporting',
-        text: 'Delivered a wide-reaching enterprise reporting estate across Power BI and paginated reports, now used firm-wide, owning both the visualisation layer and its governance. These reports are the primary decision-making surface for the business teams that consume them.'
+        subtitle: 'Internal Products, Cloud & Identity',
+        text: 'Built secure internal applications and Microsoft Teams bots using React, TypeScript, Node.js, Azure, Microsoft Graph, Adaptive Cards, group chat creation, and acknowledgement tracking. Configured Microsoft Entra application identities, OAuth, SAML SSO, MFA requirements, Key Vault, and infrastructure as code.'
       },
       {
-        subtitle: 'Data Modeling & Database Administration',
-        text: 'Designed and maintained logical and physical data models using Kimball methodology with Snowflake schemas. Owned database design and administration across reporting and analytics environments, including schemas, access controls, and performance tuning.'
+        subtitle: 'Operational Diagnosis & Reliability',
+        text: 'Diagnosed reporting and data issues end to end by tracing symptoms through paginated reports, semantic models, pipelines, historical records, and source rows. Added automated tests, alerting, observability, deployment checks, and rollback safeguards.'
       },
       {
-        subtitle: 'AI-Augmented Workflows',
-        text: 'Embedded LLMs into operational processes via Azure AI Foundry. OCR paired with LLM classification turns document images into structured data, and speech-to-text plus LLM extraction turns meeting discussions into tracked, documented work items. I also built an LLM-powered spam detection agent to classify inbound messages, a query router agent to direct user requests to the appropriate tool, workflow, or specialist agent, and AI-assisted developer tooling to support the team\'s day-to-day engineering work.'
-      },
-      {
-        subtitle: 'Monitoring & Alerting',
-        text: 'Implemented pipeline- and report-level alerting that flags data quality issues before invalid outputs reach reports, backed by an AI agent that assists with error diagnosis and remediation guidance for an engineer to action directly.'
-      },
-      {
-        subtitle: 'Internal Applications',
-        text: 'Built internal web applications on Azure Container Apps and Azure Static Web Apps, plus Microsoft Teams bots that automate collaboration workflows through group chat creation, Adaptive Cards, and acknowledgement tracking.'
-      },
-      {
-        subtitle: 'Team Leadership & Delivery',
-        text: 'Work directly with stakeholders across the full delivery lifecycle, covering requirements analysis, solution design, architectural planning, environment setup, implementation, deployment, and ongoing support. I also provide technical mentorship and code review, onboard new hires, and set technical direction. I manage delivery through Azure DevOps with structured environments and formal change control.'
-      },
-      {
-        subtitle: 'Azure Cloud Integration & Security',
-        text: 'Built secure, scalable automation with Azure Logic Apps, Function Apps, Storage Accounts, and Key Vault, with enterprise-grade authentication and secrets management across environments. Configured Microsoft Entra application identities and implemented SAML SSO integrations that support enterprise MFA requirements across applications hosted on Azure and enterprise SaaS platforms.'
+        subtitle: 'Technical Leadership & Governance',
+        text: 'Work directly with stakeholders and vendors across requirements analysis, solution design, architectural planning, environment setup, implementation, deployment, and support. Guide platform tradeoffs and build versus buy decisions, mentor engineers, review code, and apply least privilege and structured change control.'
       }
     ]
   },

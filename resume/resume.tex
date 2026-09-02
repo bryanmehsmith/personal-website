@@ -22,10 +22,11 @@
   colorlinks=true,
   urlcolor=accent,
   linkcolor=accent,
+  pageanchor=false,
   pdftitle={Bryan Smith CV},
   pdfauthor={Bryan Smith},
-  pdfsubject={Data Scientist and Data Engineer with full-lifecycle stakeholder delivery experience},
-  pdfkeywords={Data Science, Data Engineering, Stakeholder Management, Requirements Analysis, Solution Architecture, Agentic AI, Microsoft Entra ID, SAML SSO, Microsoft Teams Bots, Adaptive Cards}
+  pdfsubject={Data Scientist with data platform and analytics engineering experience in investment management},
+  pdfkeywords={Data Science, Data Platform Engineering, Analytics Engineering, Microsoft Fabric, Direct Lake, Power BI, Predictive Modelling, Statistical Analysis, Feature Engineering, Factor Regression, Momentum Research, AI Evaluation, RAG, Azure, FastAPI, Docker, Observability}
 }
 \pagenumbering{gobble}
 
@@ -33,6 +34,9 @@
 \titlespacing{\section}{0pt}{10pt}{6pt}
 
 \setlist[itemize]{leftmargin=1.1em, itemsep=1pt, topsep=2pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=2em
 
 \newcommand{\role}[4]{%
   \noindent\textbf{#1} \hfill \textcolor{muted}{#3}\\
@@ -43,7 +47,7 @@
 
 {\centering
   {\Huge\bfseries Bryan Smith}\\[4pt]
-  {\large Data Scientist \& Data Engineer}\\[4pt]
+  {\large Data Scientist $\mid$ Data Platform \& Analytics Engineering}\\[4pt]
   \textcolor{muted}{Data Analytics \textbullet\ Business Intelligence \textbullet\ Software Engineering}\\[2pt]
   \textcolor{muted}{Azure \textbullet\ Microsoft Fabric \textbullet\ Spark \textbullet\ Python \textbullet\ SQL}\\[2pt]
   \textcolor{muted}{Pretoria, South Africa}\\[2pt]
@@ -55,78 +59,62 @@
 \vspace{8pt}
 
 \section*{Summary}
-Data Scientist and Data Engineer who builds and owns production data platforms. At Peregrine Capital I
-built the platform that runs the business's analytics: 100+ pipelines drawing from dozens of source systems
-into hundreds of modelled tables, feeding an enterprise reporting estate used firm-wide. Hands-on across
-Azure, Microsoft Fabric, Spark, Airflow, Python, and SQL, with depth in data ingestion, warehousing, schema
-design, database administration, and performance tuning, plus applied machine learning and generative AI
-on top. I adapt quickly. I pivoted from actuarial and financial mathematics into data, then learned each
-new stack on the job, from Ab Initio and Teradata at First National Bank through Azure, Microsoft
-Fabric, and AI tooling at Peregrine. I have since grown into technical leadership and software engineering:
-mentoring and onboarding team members, setting technical direction, and building internal web applications
-and tooling. My delivery standards are pragmatic: secure access patterns, automated deployments, and
-proactive alerting. This helps teams move fast without trading away reliability.
+Data Scientist and data platform engineer with responsibility across the full lifecycle of production data,
+analytics, and automation in investment management. Builds Microsoft Fabric Lakehouse pipelines, semantic models,
+Power BI reporting, enterprise integrations, and secure internal tools. Works directly with stakeholders
+from requirements and architecture through deployment and support, with a strong focus on testing, least
+privilege, observability, and root cause diagnosis.
 
 \section*{Experience}
 
 \role{Data Scientist}{Peregrine Capital}{Sandton}{Nov 2021 -- Present}
-Built and own Peregrine's end-to-end data platform: 100+ production pipelines drawing from dozens of
-source systems into hundreds of modelled tables, feeding an enterprise reporting estate used across the
-business.
+Built and now own core parts of the production data and analytics platform, supporting investment data,
+reporting, enterprise integrations, and internal operational tooling.
 \begin{itemize}
-  \item Built the platform from the ground up, initially using Airflow, Docker, and Postgres before migrating
-    to Microsoft Fabric Pipelines, PySpark, and T-SQL. It now runs 100+ pipelines across hundreds of modelled
-    tables. Own platform-level architecture and administration.
-  \item Unified dozens of source systems into a single analytics ecosystem, spanning file transfers, APIs,
-    and web-based integrations, including sources with no API. Also built and maintained functionality
-    within a CRM platform used as a system of record for the analytics team.
-  \item Replaced schedule-based file ingestion with event-driven, stream-based processing, triggering
-    downstream work the instant a file lands and removing the guesswork of scheduling around estimated
-    arrival times.
-  \item Built unsupervised models that flag data points falling outside a dataset's expected norm, and
-    engineered features for downstream analysis including temporal decomposition and derived labels.
-  \item Delivered a wide-reaching enterprise reporting estate across Power BI and paginated reports, now
-    used firm-wide, owning both the visualisation layer and its governance.
-  \item Designed and maintained logical and physical data models using Kimball methodology with Snowflake
-    schemas, and owned database design and administration across reporting and analytics environments,
-    including schemas, access controls, and performance tuning.
-  \item Embedded LLMs into operational processes via Azure AI Foundry: OCR paired with LLM classification
-    to turn document images into structured data, and speech-to-text plus LLM extraction that turns meeting
-    discussions into tracked, documented work items. Also built an LLM-powered spam detection agent for
-    inbound messages, a query router agent that directs user requests to the appropriate tool, workflow, or
-    specialist agent, and AI-assisted developer tooling to support the team's day-to-day engineering work.
-  \item Implemented pipeline- and report-level alerting that flags data quality issues before invalid
-    outputs reach reports, backed by an AI agent that assists with error diagnosis and remediation
-    guidance.
-  \item Built secure internal web applications and Microsoft Teams bots on Azure, using Adaptive Cards and
-    acknowledgement tracking for collaboration workflows. Configured Entra application identities and SAML
-    SSO with MFA requirements, plus automation using Logic Apps, Function Apps, Storage Accounts, and Key Vault.
-  \item Work directly with stakeholders from requirements analysis and solution design through architectural
-    planning, environment setup, implementation, deployment, and support. Also provide mentorship, code
-    review, onboarding, and technical direction, managing delivery through Azure DevOps with structured
-    environments and formal change control.
+  \item Engineered a Microsoft Fabric platform spanning Lakehouse, pipelines, PySpark, T-SQL, Direct Lake
+    semantic models, Power BI, paginated reporting, and governed deployment workflows.
+  \item Built ingestion, reconciliation, synchronisation, and delivery flows across portfolio, CRM, finance,
+    web, REST API, SFTP, and file sources.
+  \item Designed and maintained dimensional models, data contracts, database schemas, access controls, and
+    compatible changes across pipelines, semantic models, and reports.
+  \item Introduced event driven ingestion where appropriate, triggering downstream processing when files
+    arrive instead of relying only on estimated delivery schedules.
+  \item Delivered governed investment reporting covering positions, trades, returns, exposure,
+    reconciliation, and investor reporting across multiple business functions.
+  \item Built unsupervised models that flag observations outside expected patterns and engineered features
+    for analysis, including temporal decomposition and derived labels.
+  \item Built secure internal applications, Microsoft Teams bots, and workflow automation using Azure,
+    Microsoft Graph, Adaptive Cards, Entra identities, SAML, and Key Vault.
+  \item Embedded OCR, transcription, LLM extraction, classification, unsupervised modelling, and agent
+    routing into operational workflows, with human review and engineering safeguards. Built a spam detection
+    agent powered by an LLM for inbound messages and a query router agent for tools, workflows, or specialists.
+  \item Diagnosed reporting and data issues end to end by tracing symptoms through reports, semantic models,
+    pipelines, historical records, and source rows.
+  \item Applied automated testing, CI/CD, infrastructure as code, least privilege, observability, deployment
+    gates, and rollback safeguards across platform changes.
+  \item Partner with stakeholders and vendors on requirements, architecture, rollout, production support,
+    platform tradeoffs, and build versus buy decisions. Mentor engineers and review code.
 \end{itemize}
 
-\vspace{4pt}
+\newpage
 \role{Data Engineer}{First National Bank}{Randburg}{Jan 2020 -- Oct 2021}
-Built high-performance ETL pipelines and large-scale data integrations in an enterprise banking
-environment.
+Built ETL pipelines tuned for high performance and data integrations at enterprise scale.
 \begin{itemize}
   \item Built dynamic, reusable ETL pipelines using Ab Initio and Teradata SQL, ingesting from Kafka queues,
     Postgres, and MySQL to power the App, USSD, and Online channels.
   \item Redesigned Teradata table structures to balance cost against speed through strategic indexing,
-    structural refinements, and multi-value compression (MVC), cutting storage by up to 50\%.
+    structural refinements, and multi value compression (MVC), cutting storage by up to 50\%.
   \item Tuned pipelines to process gigabytes within short batch windows through repeated rounds of indexing,
     partitioning, and resource management.
   \item Developed logical and physical data architectures spanning dozens of interconnected tables.
   \item Managed SQL environment permissions and access controls across production and development layers,
     minimising risk.
-  \item Progressed rapidly into code review and mentorship responsibilities, trusted by senior engineers to
-    deliver production-grade code.
+  \item Earned code review and mentoring responsibilities and delivered production code under senior
+    engineer review.
 \end{itemize}
 
 \section*{Education}
-\textbf{BSc Computer Science (Part-Time)} \hfill \textcolor{muted}{2022 -- 2025}\\
+\textbf{BSc Computer Science, Part Time} \hfill \textcolor{muted}{2022 -- 2025}\\
 University of Witwatersrand, Johannesburg\\
 \textcolor{muted}{Relevant coursework: Machine Learning, Parallel Computing, Advanced Analysis of
 Algorithms, Software Design.}
@@ -142,21 +130,26 @@ Financial Engineering.}
 Actuarial Society of South Africa
 
 \section*{Skills}
-\textbf{Data Processing:} Spark, Batch Processing, Stream Processing, Ab Initio \\
-\textbf{Cloud \& Identity:} Azure Container Apps, Azure Static Web Apps, Azure Functions, Azure Key Vault,
-Azure Logic Apps, Microsoft Entra ID, SAML SSO \\
-\textbf{Data Ingestion \& Source Systems:} API Ingestion, SFTP Ingestion, Salesforce, SharePoint, Web
-Scraping \\
-\textbf{Data Platforms \& Warehousing:} Microsoft Fabric, Microsoft SQL Server, Postgres, MySQL, Teradata \\
-\textbf{Data Modeling \& Database Management:} Dimensional Modeling (Kimball), Database Design,
-Database Administration \\
-\textbf{AI \& Machine Learning:} Azure AI Foundry, LLM Integration, Agentic AI Development, Unsupervised
-Learning, Predictive Modeling \\
-\textbf{Business Intelligence:} Power BI Reports, Power BI Paginated Reports, DAX \\
-\textbf{Analytics \& Modeling:} Statistical Analysis, Feature Engineering, Data Visualization \\
-\textbf{Infrastructure \& DevOps:} Azure DevOps, Monitoring \& Alerting, Docker, Airflow, CI/CD \\
-\textbf{Programming \& Scripting:} Python, SQL (T-SQL), Bash, R \\
-\textbf{Software Engineering:} JavaScript, React, Microsoft Teams Bots, Adaptive Cards
+\textbf{Data Platform:} Microsoft Fabric, Lakehouse, Direct Lake, Semantic Models, TMDL, PySpark, T-SQL \\
+\textbf{Data Processing \& Modelling:} Spark, Batch Processing, Stream Processing, Airflow, Dimensional
+Modelling, Data Contracts, Database Design \\
+\textbf{Databases:} SQL Server, Postgres, Teradata, MySQL, Database Administration, Schema Design, Access
+Controls \\
+\textbf{Reporting \& Domain:} Power BI, DAX, Paginated Reports, Investment Data, Positions, Trades,
+Returns, Exposure, Reconciliation, Investor Reporting \\
+\textbf{Analytics \& Research:} Predictive Modelling, Statistical Analysis, Feature Engineering, Factor
+Regression, Momentum Research \\
+\textbf{AI \& Machine Learning:} Azure AI Foundry, LLM Integration, Agentic AI, OCR, Classification,
+Unsupervised Learning, AI Evaluation, RAG \\
+\textbf{Cloud \& Identity:} Azure, Bicep, Container Apps, Functions, Entra ID, OAuth, SAML SSO, Key Vault,
+Conditional Access \\
+\textbf{Integration \& Applications:} REST APIs, FastAPI, SFTP, Salesforce, Microsoft Graph, Teams Bots,
+Logic Apps \\
+\textbf{Programming:} Python, SQL, TypeScript, JavaScript, React, Node.js, Bash, R (Familiar) \\
+\textbf{Engineering \& Delivery:} Docker, Azure DevOps, GitHub Actions, CI/CD, Automated Testing,
+Observability, Root Cause Analysis \\
+\textbf{Leadership \& Governance:} Requirements Analysis, Solution Architecture, Stakeholder Management,
+Mentoring, Code Review, Build versus Buy
 
 \section*{Languages}
 Afrikaans (Fluent), English (Fluent)

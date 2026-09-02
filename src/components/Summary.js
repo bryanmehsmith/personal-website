@@ -2,10 +2,9 @@ import React from 'react';
 import usePageTitle from '../hooks/usePageTitle';
 
 export const summaryParagraphs = [
-  'Data Scientist and Data Engineer who builds and owns production data platforms. At Peregrine Capital I built the platform that runs the business\'s analytics: 100+ pipelines drawing from dozens of source systems into hundreds of modelled tables, feeding an enterprise reporting estate used firm-wide.',
-  'Hands-on across Azure, Microsoft Fabric, Spark, Airflow, Python, and SQL. Depth in data ingestion, warehousing, schema design, database administration, and performance tuning, with applied machine learning and generative AI on top.',
-  'I adapt quickly. I pivoted from actuarial and financial mathematics into data, then learned each new stack on the job, including Ab Initio and Teradata at First National Bank, followed by Azure, Microsoft Fabric, and AI tooling at Peregrine.',
-  'I have since grown into technical leadership and software engineering: mentoring and onboarding team members, setting technical direction, and building internal web applications and tooling. My delivery standards are pragmatic: secure access patterns, automated deployments, and proactive alerting. This helps teams move fast without trading away reliability.',
+  'Data Scientist and data platform engineer with responsibility across the full lifecycle of production data platforms, analytics, and automation in investment management. I build Microsoft Fabric Lakehouse pipelines, semantic models, Power BI reporting, enterprise integrations, and secure internal tools.',
+  'I work directly with stakeholders from requirements and architecture through deployment and support. My work spans Python, PySpark, T-SQL, Azure, Microsoft Graph, applied machine learning, and governed LLM workflows.',
+  'I combine hands-on engineering with technical leadership, mentoring, code review, and platform planning. I focus on automated testing, least privilege, observability, deployment safety, and root cause diagnosis.',
 ];
 
 const Summary = () => {

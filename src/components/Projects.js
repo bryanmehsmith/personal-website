@@ -25,23 +25,23 @@ export const projects = [
   },
   {
     name: 'Demo Hosting Platform',
-    tagline: 'A single Azure Container App fronting multiple lightweight POC demos behind one Caddy reverse proxy, auto-deployed on every push.',
+    tagline: 'A single Azure Container App serving static browser demos and starting small JSON APIs only when a live data request needs them.',
     description: [
       {
         subtitle: 'Problem',
-        text: 'Needed a low-cost, low-friction way to publish and share small proof-of-concept demos (static pages and Streamlit apps) without provisioning separate infrastructure for each one.'
+        text: 'Needed a low cost way to publish independent proof of concept demos without provisioning and running a separate service for every project.'
       },
       {
         subtitle: 'Approach',
-        text: 'One Docker image runs Caddy as a reverse proxy. Static and JavaScript demos are served directly, while Python demos are pulled in as git submodules and run with Streamlit as internal processes proxied at /demos/<slug>. Streamlit is a deliberately lightweight, portable choice because it turns a plain Python script into a shareable web UI with no separate frontend to build. A new proof of concept can therefore go from a script to a live, clickable demo in one small app file. GitHub Actions builds the image, pushes it to ghcr.io, and updates the Azure Container App on every push to main. Individual demo repos can auto-bump their submodule reference here to trigger a redeploy on their own push.'
+        text: 'Caddy serves static HTML and JavaScript frontends directly. A small process manager starts the Python JSON APIs for live market data only on demand, then reaps idle processes. Each demo remains an independent Git submodule, while GitHub Actions builds and deploys the shared container.'
       },
       {
         subtitle: 'Impact',
-        text: 'New POC demos go live with a submodule add, a config entry, and a Caddy route, with no manual server provisioning per demo. This is intentionally a fast way to share proof-of-concept work, not a production deployment pattern.'
+        text: 'New demos use a submodule, route, and optional API registration. Static demos consume no background process, while data backed demos retain an optional live refresh path. This remains a proof of concept hosting pattern.'
       }
     ],
-    stack: ['Docker', 'Caddy', 'Streamlit', 'GitHub Actions', 'Azure Container Apps', 'ghcr.io', 'Python'],
-    steps: ['Demo Repo (submodule)', 'Docker Build', 'GitHub Actions CI', 'Azure Container App', 'Caddy Reverse Proxy'],
+    stack: ['Docker', 'Caddy', 'Vanilla JavaScript', 'JSON APIs', 'GitHub Actions', 'Azure Container Apps', 'Python'],
+    steps: ['Demo Repo', 'Static Frontend', 'Optional Live API', 'Caddy Routing', 'Azure Container App'],
     links: { repo: 'https://github.com/bryanmehsmith/demo-site', demo: 'https://demo.bryansmith.co.za' }
   },
   {
@@ -67,45 +67,88 @@ export const projects = [
   },
   {
     name: 'JSE Momentum Factor Backtest',
-    tagline: 'A transparent, from-scratch quant research pipeline testing the momentum factor on the Johannesburg Stock Exchange.',
+    tagline: 'A guided research lab for constructing and testing a long only momentum strategy on the Johannesburg Stock Exchange.',
     description: [
       {
         subtitle: 'Problem',
-        text: 'Wanted to test whether a well-documented equity factor (momentum) holds up on a smaller, less liquid market like the JSE, with a transparent, from-scratch pipeline rather than a vendor black box.'
+        text: 'Wanted to examine the mechanics, risks, and limitations of a momentum strategy on a smaller market without relying on a vendor backtesting black box.'
       },
       {
         subtitle: 'Approach',
-        text: 'Pulls adjusted close prices for a JSE ticker universe, computes a "12-1" momentum signal (12-month formation window, skipping the most recent month to avoid short-term reversal), ranks the universe into quantiles, and runs a vectorized long-only top-quantile backtest with monthly rebalancing.'
+        text: 'The Python research implementation computes a 12 minus 1 momentum signal, ranks a JSE universe into quantiles, and backtests an equal weighted top quantile portfolio with monthly rebalancing. A static JavaScript frontend ports the same calculations into the browser and runs against a bundled monthly price snapshot. A companion JSON API is used only for optional live price refreshes.'
       },
       {
         subtitle: 'Impact',
-        text: 'A working, tested, end-to-end factor research pipeline (data, signal, portfolio, performance report covering returns, max drawdown, and turnover), demonstrating quantitative research rigor directly relevant to the asset-management domain, using only public market data.'
+        text: 'The tested workflow reports returns, volatility, Sharpe ratio, and maximum drawdown while explaining formation windows, portfolio construction, and momentum crash risk. It is research and education using public market data, not investment advice.'
       }
     ],
-    stack: ['Python', 'yfinance', 'pandas', 'numpy', 'pytest', 'uv'],
-    steps: ['Price Data', 'Momentum Signal (12-1)', 'Quantile Portfolio Construction', 'Backtest & Performance Report'],
+    stack: ['Python', 'JavaScript', 'yfinance', 'pandas', 'NumPy', 'pytest', 'JSON API', 'KaTeX'],
+    steps: ['Market Data', '12 Minus 1 Signal', 'Quantile Portfolio', 'Risk & Performance', 'Browser Lab'],
     links: { repo: 'https://github.com/bryanmehsmith/basic-jse-momentum-factor', demo: 'https://demo.bryansmith.co.za/demos/momentum-factor/' }
   },
   {
     name: 'Factor Regression Lab',
-    tagline: 'An interactive tool for decomposing asset returns into risk-factor exposure and genuine alpha, with rigorous standard-error diagnostics.',
+    tagline: 'A guided statistical inference lab for testing whether apparent alpha is distinct from known factor exposure.',
     description: [
       {
         subtitle: 'Problem',
-        text: 'A quoted return in isolation is meaningless. Outperformance can be genuine skill (alpha) or exposure to well-known, cheaply replicable risk factors, while naive OLS often overstates significance when residuals are autocorrelated.'
+        text: 'A return alone does not show whether outperformance came from alpha or known factor exposure. Inference also changes when residual variance and autocorrelation violate classical OLS assumptions.'
       },
       {
         subtitle: 'Approach',
-        text: 'Runs nested regressions on excess returns against CAPM, Fama-French 3-factor, Fama-French 5-factor, and FF5+Momentum models to show how alpha shrinks as more factors are added, computing standard errors three ways (Classical OLS, White HC1, Newey-West HAC) alongside Breusch-Pagan, Durbin-Watson, Ljung-Box, Jarque-Bera, and VIF diagnostics, plus rolling-window estimates to catch time-varying exposures.'
+        text: 'Runs nested CAPM, Fama French three factor, five factor, and five factor plus momentum models. It compares classical, White HC1, and Newey West HAC standard errors, then adds residual, multicollinearity, nested model, and rolling stability diagnostics. A static JavaScript frontend runs against bundled monthly snapshots, while a companion JSON API supports optional live data and ticker requests.'
       },
       {
         subtitle: 'Impact',
-        text: 'A transparent, interactive tool that turns "is this alpha real?" into a testable, diagnosable question rather than a single misleading OLS t-stat.'
+        text: 'The browser implementation is checked through Python parity fixtures and distribution reference tests. The result is an inspectable workflow for asking whether alpha survives model choice and appropriate uncertainty estimates, without presenting the output as investment advice.'
       }
     ],
-    stack: ['Python', 'Streamlit', 'statsmodels', 'pandas', 'yfinance', 'matplotlib', 'pytest', 'uv'],
-    steps: ['Factor & Price Data', 'Alignment', 'Nested Regression (CAPM to FF5+Mom)', 'Diagnostics & Robust SEs', 'Rolling Stability', 'Visualization'],
+    stack: ['Python', 'JavaScript', 'statsmodels', 'pandas', 'yfinance', 'pytest', 'JSON API', 'KaTeX'],
+    steps: ['Factor & Asset Data', 'Nested Models', 'Robust Inference', 'Diagnostics', 'Rolling Stability', 'Python Parity'],
     links: { repo: 'https://github.com/bryanmehsmith/factor-regression-lab', demo: 'https://demo.bryansmith.co.za/demos/factor-regression/' }
+  },
+  {
+    name: 'Security Anti-Patterns',
+    tagline: 'Five interactive walkthroughs of everyday security practices that feel safe but leave important risks unresolved.',
+    description: [
+      {
+        subtitle: 'Problem',
+        text: 'Security advice is often presented as rules without showing the failure mode, which makes weak controls such as emailed files, reused credentials, and fragile password protection feel safer than they are.'
+      },
+      {
+        subtitle: 'Approach',
+        text: 'Built five browser based modules covering file transfer, password protected files, credential reuse, phishing, and data at rest. Each starts in plain language and exposes technical detail only when useful, including an illustrative crack time calculator and interactive breach and phishing scenarios.'
+      },
+      {
+        subtitle: 'Scope',
+        text: 'A static educational demo built with HTML, CSS, and vanilla JavaScript. Figures are illustrative approximations for comparing relative risk, not audited security measurements or penetration testing guidance.'
+      }
+    ],
+    stack: ['HTML', 'CSS', 'Vanilla JavaScript', 'Security Awareness'],
+    steps: ['File Transfer', 'Password Protection', 'Credential Reuse', 'Phishing', 'Data at Rest'],
+    links: { repo: 'https://github.com/bryanmehsmith/security-anti-patterns', demo: 'https://demo.bryansmith.co.za/demos/security-anti-patterns/' }
+  },
+  {
+    name: 'NN Foundations Lab',
+    status: 'In progress',
+    tagline: 'An in progress guided lab that builds neural network fundamentals from explicit mathematics and small implementations.',
+    description: [
+      {
+        subtitle: 'Problem',
+        text: 'High level frameworks make neural networks productive but can hide the mechanics of tensors, losses, gradients, optimisation, and numerical stability.'
+      },
+      {
+        subtitle: 'Approach',
+        text: 'Implements tensors, layers, activations, losses, manual backpropagation, SGD, Adam, regularisation, and training loops from scratch in NumPy and JavaScript. Numerical gradient checks verify backward passes, while parity checks compare the reference implementations with PyTorch and TensorFlow.js.'
+      },
+      {
+        subtitle: 'Status',
+        text: 'The live static lab currently covers regression, probability, classification, softmax and cross entropy, Jacobians, SVD, normalisation, backpropagation, optimisers, regularisation, and framework parity. The project remains in progress as the explanations and checks are refined.'
+      }
+    ],
+    stack: ['NumPy', 'PyTorch', 'JavaScript', 'TensorFlow.js', 'pytest', 'KaTeX'],
+    steps: ['Math Foundations', 'Forward Pass', 'Loss', 'Backpropagation', 'Optimisation', 'Parity Checks'],
+    links: { repo: 'https://github.com/bryanmehsmith/nn-foundations-lab', demo: 'https://demo.bryansmith.co.za/demos/nn-foundations/' }
   }
 ];
 
@@ -192,7 +235,10 @@ export const ProjectLinks = ({ links }) => (
 const CaseStudyCard = ({ project }) => (
   <details className="card-full-width project-card">
     <summary className="card-title project-summary">
-      <span className="project-name">{project.name}</span>
+      <span className="project-title">
+        <span className="project-name">{project.name}</span>
+        {project.status && <span className="project-status">{project.status}</span>}
+      </span>
       <ProjectLinks links={project.links} />
     </summary>
     <div className="project-body">

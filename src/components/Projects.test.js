@@ -57,6 +57,26 @@ describe('Projects component', () => {
       'https://demo.bryansmith.co.za/demos/factor-regression/'
     );
 
+    const securityCard = screen.getByText('Security Anti-Patterns').closest('.project-card');
+    expect(within(securityCard).getByRole('link', { name: /view repo/i })).toHaveAttribute(
+      'href',
+      'https://github.com/bryanmehsmith/security-anti-patterns'
+    );
+    expect(within(securityCard).getByRole('link', { name: /live demo/i })).toHaveAttribute(
+      'href',
+      'https://demo.bryansmith.co.za/demos/security-anti-patterns/'
+    );
+
+    const neuralNetworkCard = screen.getByText('NN Foundations Lab').closest('.project-card');
+    expect(within(neuralNetworkCard).getByRole('link', { name: /view repo/i })).toHaveAttribute(
+      'href',
+      'https://github.com/bryanmehsmith/nn-foundations-lab'
+    );
+    expect(within(neuralNetworkCard).getByRole('link', { name: /live demo/i })).toHaveAttribute(
+      'href',
+      'https://demo.bryansmith.co.za/demos/nn-foundations/'
+    );
+
     const demoHostingCard = screen.getByText('Demo Hosting Platform').closest('.project-card');
     expect(within(demoHostingCard).getByRole('link', { name: /view repo/i })).toHaveAttribute(
       'href',
@@ -76,6 +96,29 @@ describe('Projects component', () => {
       'href',
       'https://www.bryansmith.co.za'
     );
+  });
+
+  test('shows NN Foundations Lab as in progress', () => {
+    render(<Projects />);
+
+    const card = screen.getByText('NN Foundations Lab').closest('.project-card');
+    expect(within(card).getByText('In progress')).toBeVisible();
+  });
+
+  test('describes the current browser-first momentum and factor regression demos', () => {
+    render(<Projects />);
+
+    const momentumCard = screen.getByText('JSE Momentum Factor Backtest').closest('.project-card');
+    expect(momentumCard).toHaveTextContent(/static JavaScript frontend/i);
+    expect(momentumCard).toHaveTextContent(/bundled monthly price snapshot/i);
+    expect(momentumCard).toHaveTextContent(/companion JSON API/i);
+    expect(momentumCard).toHaveTextContent(/returns, volatility, Sharpe ratio, and maximum drawdown/i);
+    expect(momentumCard).not.toHaveTextContent(/turnover/i);
+
+    const factorCard = screen.getByText('Factor Regression Lab').closest('.project-card');
+    expect(factorCard).toHaveTextContent(/static JavaScript frontend/i);
+    expect(factorCard).toHaveTextContent(/bundled monthly snapshots/i);
+    expect(factorCard).toHaveTextContent(/Python parity/i);
   });
 
   test('shows a disabled demo button alongside a working repo link', () => {
